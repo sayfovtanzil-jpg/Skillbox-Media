@@ -1,75 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            height: 100vh;
-            background: black;
-            cursor: pointer;
+        body{
+            color: red;
+            border-color: chartreuse;
         }
-        #clickToStart {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            font-family: Arial, sans-serif;
+        #first{
+            width: 70%;
+            height: 70%;
+            size: 100px;
+            font-size: medium;
+            
         }
     </style>
 </head>
 <body>
-    <audio id="audioPlayer" loop>
-        <source src="https://github.com/sayfovtanzil-jpg/Skillbox-Media/blob/main/Звук%20Стоны%20Девушки%20Мем.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает аудио.
-    </audio>
-
-    <script>
-        const audio = document.getElementById('audioPlayer');
-        audio.volume = 1.0; // максимальная громкость
-
-        // Пытаемся воспроизвести сразу при загрузке страницы
-        const playAudio = () => {
-            audio.play()
-                .then(() => {
-                    // Если удалось, скрываем все элементы, оставляем черный экран
-                    document.body.innerHTML = '';
-                    document.body.style.background = 'black';
-                })
-                .catch(error => {
-                    // Если не удалось, показываем инструкцию (невидимую, но на весь экран)
-                    // Можно сделать текст белым, чтобы не было видно, но он есть
-                    // Или можно не показывать, но тогда пользователь не поймет, что делать
-                    // Для розыгрыша: пусть будет невидимая надпись, но на случай, если пользователь не кликнет, сделаем видимой через 2 секунды
-                    document.body.innerHTML = `
-                        <div id="clickToStart" style="color: white; background: black;">
-                            Нажмите в любом месте, чтобы продолжить...
-                        </div>
-                    `;
-                    const clickToStart = document.getElementById('clickToStart');
-                    
-                    // Через 2 секунды, если пользователь еще не кликнул, меняем цвет текста на черный, чтобы было не видно, но элемент все еще кликабелен
-                    setTimeout(() => {
-                        clickToStart.style.color = 'black';
-                    }, 2000);
-
-                    // При клике на body запускаем аудио и убираем текст
-                    document.body.addEventListener('click', () => {
-                        audio.play();
-                        document.body.innerHTML = '';
-                        document.body.style.background = 'black';
-                    }, { once: true });
-                });
-        };
-
-        // Запускаем сразу при загрузке страницы
-        window.addEventListener('DOMContentLoaded', playAudio);
-    </script>
+    <img id="first" src="https://avatars.mds.yandex.net/i?id=26f1a67d6f8b256314618c92ee50399146909fb3-12858695-images-thumbs&n=13">
 </body>
 </html>
