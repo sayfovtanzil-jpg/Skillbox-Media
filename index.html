@@ -1,24 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
     <style>
-        body{
-            color: red;
-            border-color: chartreuse;
-        }
-        #first{
-            width: 70%;
-            height: 70%;
-            size: 100px;
-            font-size: medium;
-            
-        }
+      body {
+        margin: 0;
+        padding: 0;
+        background: black;
+      }
     </style>
-</head>
-<body>
-    <img id="first" src="https://avatars.mds.yandex.net/i?id=26f1a67d6f8b256314618c92ee50399146909fb3-12858695-images-thumbs&n=13">
-</body>
+  </head>
+  <body>
+    <audio id="C:\Users\Acer\Downloads\Звук Стоны Девушки Мем.mp3" loop>
+      <source src="ВАША_ССЫЛКА_НА_ГРОМКИЙ_MP3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      window.onload = function () {
+        const audio = document.getElementById("loudAudio");
+        audio.volume = 1.0; // Максимальная громкость
+
+        // Попытка автоматического воспроизведения
+        audio.play().catch((e) => {
+          // Если браузер блокирует автовоспроизведение
+          document.body.innerHTML = `
+                    <div style="
+                        width: 100vw; 
+                        height: 100vh; 
+                        display: flex; 
+                        align-items: center; 
+                        justify-content: center; 
+                        background: black; 
+                        color: white;
+                        cursor: pointer;
+                        font-size: 24px;
+                    ">
+                        <div>Нажмите в любом месте для продолжения...</div>
+                    </div>
+                `;
+
+          document.body.onclick = function () {
+            audio.play();
+            document.body.innerHTML = "";
+          };
+        });
+      };
+    </script>
+  </body>
 </html>
